@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <!--Main div starts here-->
+      <div class="container">
+      <header>
+        <img src="images/logo.jpg" alt="logo" class="logoImg" />
+        <input type="text" id="searchBar" placeholder="Search" name="search" oninput="searchVideos(this.value)"/>
+        <button type="submit" id="searchButton">
+          <i class="fa fa-search"></i>
+        </button>
+        <a href="#"><i class="fa fa-microphone" id="microphoneIcon"></i></a>
+        <a href="#"><i class="fa fa-video-camera" id="videoIcon"></i></a>
+        <a href="#"><i class="fa fa-bars" id="barIcon"></i></a>
+        <a href="#"><i class="fa fa-bell" id="bellIcon"></i></a>
+        <a href="#"><i class="fa fa-user-circle" id="userIcon"></i></a>
+      </header>
+
+      <div class="row" id="buttonRow">
+        <div class="col-12">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" 
+          onclick="youTubeChannelInfo()">Channel Info</button>
+          <!--MOdal Code-->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Channel Information</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" id="channelModal">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal1" onclick="displaySubscription()">Subscriptions</button>
+ <!--MOdal Code-->
+ <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Subscriptions Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="subscriptionModal">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2" onclick="createPlaylist()">Playlists</button>
+<!--MOdal Code-->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">Create Playlists</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="playlistModal">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal3" >Upload Videos</button>
+<!--MOdal Code-->
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel3">Upload your videos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="uploadModal">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+      </div>
+      <br>
+      <section id="videos">
+        <div class="container">
+        <div class="row">
+          <div class="col-3">
+            <iframe
+              class="img-thumbnail"
+              src="https://www.youtube.com/embed/tMNjBWV9r3Y"
+              loading="lazy"
+              frameborder="0"
+              allow="accelerometer; autoplay;
+              clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="col-3">
+            <iframe 
+            class="img-thumbnail"
+            src="https://www.youtube.com/embed/07d2dXHYb94" 
+            loading="lazy"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="col-3">
+            <iframe
+              class="img-thumbnail"
+              src="https://www.youtube.com/embed/d4xTfc_-FK4"
+              loading="lazy"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="col-3">
+            <iframe
+              class="img-thumbnail"
+              src="https://www.youtube.com/embed/BDPbtP-0AW8"
+              loading="lazy"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <article style="text-align: center">
+              <h6>Ratan Tata's speech'</h6>
+              <p>
+                Ratan Tata's Acceptance Speech on receiving the Lifetime
+                Achievement Award at TiEcon Mumbai 2020
+              </p>
+              <p>17k views • Premiered Feb 25, 2020</p>
+            </article>
+          </div>
+
+          <div class="col-3">
+            <article style="text-align: center">
+              <h6>Pip | A Short Animated Film</h6>
+              <p>
+                Pip is a Short Animated Film. Dog’s heroics will make you cry! 
+                For adopting and donating dogs, follow the link below.
+                </p>
+              <p>254,470,993 views • Oct 25, 2018</p>
+            </article>
+          </div>
+
+          <div class="col-3">
+            <article style="text-align: center">
+              <h6>SRK Answers!</h6>
+              <p>
+                In this segment produced by Zee Series Shah Rukh Khan responds
+                to the Internet's Most Searched Questions about himself.
+              </p>
+              <p>7.3k views • Aug 1, 2018</p>
+            </article>
+          </div>
+
+          <div class="col-3">
+            <article style="text-align: center">
+              <h6>Glacial lake outburst flood</h6>
+              <p>
+                As the climate changes and glaciers melt, a lesser-known threat
+                lurks in alpine areas: glacial lake outburst floods.
+              </p>
+              <p>165k views • 1 year ago</p>
+            </article>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-3">
+            <iframe
+              class="img-thumbnail"
+              src="https://www.youtube.com/embed/HJFxTsX0Ok0"
+              loading="lazy"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="col-3">
+            <iframe
+              class="img-thumbnail"
+              src="https://www.youtube.com/embed/uEr4_9rgzH0"
+              loading="lazy"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="col-3">
+            <iframe
+              class="img-thumbnail"
+              src="https://www.youtube.com/embed/nc5Lj90BzSQ"
+              loading="lazy"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="col-3">
+            <iframe
+              class="img-thumbnail"
+              src="https://www.youtube.com/embed/N0bj4UZ3zWg"
+              loading="lazy"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-3">
+            <article>
+              <h6>Is Jerry Taking Care of Tom?</h6>
+              <p>
+                Catch up with Tom & Jerry as they chase each other, avoid Spike,
+                and play with friends like Little
+              </p>
+              <p>39,696,772 views • Apr 27, 2020</p>
+            </article>
+          </div>
+          <div class="col-3">
+            <article>
+              <h6>Rangoli Design with Flowers</h6>
+              <p>
+                Simple and Easy Flower Rangoli. Flower Decoration Ideas At Home.
+                If you like this video.
+              </p>
+              <p>90k views • 1 year ago</p>
+            </article>
+          </div>
+          <div class="col-3">
+            <article>
+              <h6>"Thatching Eggs" by Max Marlow</h6>
+              <p>
+                CGI 3D Animated Short Film: Thatching Eggs Animated Short Film
+                by Max Marlow.
+              </p>
+              <p>1,304,385 views • Nov 21, 2020</p>
+            </article>
+          </div>
+          <div class="col-3">
+            <article>
+              <h6>"Never Give Up" - Elon Musk</h6>
+              <p>
+                In this powerful motivational video, Elon Musk talks about never
+                giving up.
+              </p>
+              <p>19,058 views•Feb 15, 2021</p>
+            </article>
+          </div>
+        </div>
+       <br>
+        <div class="row">
+          <div class="col-3">
+            <iframe
+              class="img-thumbnail"
+              src="https://www.youtube.com/embed/tMNjBWV9r3Y"
+              loading="lazy"
+              
+              frameborder="0"
+              allow="accelerometer; autoplay; 
+          clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="col-3">
+            <iframe
+              class="img-thumbnail"
+              src="https://www.youtube.com/embed/Uikn8aJzu30"
+              loading="lazy"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="col-3">
+            <iframe
+              class="img-thumbnail"
+              src="https://www.youtube.com/embed/d4xTfc_-FK4"
+              loading="lazy"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="col-3">
+            <iframe
+              class="img-thumbnail"
+              src="https://www.youtube.com/embed/BDPbtP-0AW8"
+              loading="lazy"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <article style="text-align: center">
+              <h6>Ratan Tata's speech'</h6>
+              <p>
+                Ratan Tata's Acceptance Speech on receiving the Lifetime
+                Achievement Award at TiEcon Mumbai 2020
+              </p>
+              <p>17k views • Premiered Feb 25, 2020</p>
+            </article>
+          </div>
+
+          <div class="col-3">
+            <article style="text-align: center">
+              <h6>Pat and Mat' 2020 Bath Panel</h6>
+              <p>
+                Pat & Mat is a Czechoslovak slapstick stop-motion animated
+                series created by Lubomír Beneš and Vladimír.
+              </p>
+              <p>2.7M views • 9 months ago</p>
+            </article>
+          </div>
+
+          <div class="col-3">
+            <article style="text-align: center">
+              <h6>SRK Answers!</h6>
+              <p>
+                In this segment produced by Zee Series Shah Rukh Khan responds
+                to the Internet's Most Searched Questions about himself.
+              </p>
+              <p>7.3k views • Aug 1, 2018</p>
+            </article>
+          </div>
+
+          <div class="col-3">
+            <article style="text-align: center">
+              <h6>Glacial lake outburst flood</h6>
+              <p>
+                As the climate changes and glaciers melt, a lesser-known threat
+                lurks in alpine areas: glacial lake outburst floods.
+              </p>
+              <p>165k views • 1 year ago</p>
+            </article>
+          </div>
+        </div>
+        <br>
+
+      </section>
+      </div>
+    
+    <!--main div ends here-->
+  </div>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
